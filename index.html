@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekin Ajaa — Website & Digital Marketing untuk UMKM & Instansi</title>
+  <meta name="description" content="Jasa pembuatan website, landing page, aplikasi, SEO, dan Google & Meta Ads untuk UMKM dan instansi. Punya ide? Projekin aja — konsultasi gratis.">
+  <meta property="og:title" content="Projekin Ajaa — Punya ide? Projekin aja.">
+  <meta property="og:description" content="Partner digital untuk UMKM & instansi: website, landing page, aplikasi, SEO, dan iklan digital.">
+  <meta property="og:type" content="website">
+  <!-- GANTI domain di bawah dengan domain produksimu (mis. https://projekinajaa.vercel.app) -->
+  <meta property="og:url" content="https://projekinajaa.com/">
+  <meta property="og:image" content="https://projekinajaa.com/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Projekin Ajaa — Punya ide? Projekin aja.">
+  <meta property="og:site_name" content="Projekin Ajaa">
+  <meta property="og:locale" content="id_ID">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projekin Ajaa — Punya ide? Projekin aja.">
+  <meta name="twitter:description" content="Partner digital untuk UMKM & instansi: website, landing page, aplikasi, SEO, dan iklan digital.">
+  <meta name="twitter:image" content="https://projekinajaa.com/assets/images/og-image.png">
+  <link rel="icon" href="/assets/images/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== TOKENS ========== */
+    :root {
+      --teal: #0E3D38;
+      --teal2: #0a2f2b;
+      --jade: #2A8C7D;
+      --amber: #E9975A;
+      --amber2: #f2b079;
+      --cream: #F3ECDC;
+      --paper: #FCFAF4;
+      --ink: #103A35;
+      --muted: #6E7E78;
+      --tealmut: #9CC0B8;
+      --maxw: 1120px;
+    }
+
+    /* ========== BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -.02em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .aw {
+      color: var(--amber);
+    }
+
+    .label {
+      display: inline-block;
+      color: var(--amber);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .8s cubic-bezier(.2, .7, .3, 1),
+                  transform .8s cubic-bezier(.2, .7, .3, 1);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ========== NAV ========== */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      padding: 14px 0;
+      transition: .35s;
+    }
+
+    nav.sc {
+      background: rgba(252, 250, 244, .85);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(16, 58, 53, .08);
+      padding: 9px 0;
+    }
+
+    .nv {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Bricolage Grotesque';
+      font-weight: 800;
+      font-size: 21px;
+      color: var(--cream);
+      transition: color .35s;
+    }
+
+    nav.sc .brand {
+      color: var(--ink);
+    }
+
+    .ncta {
+      padding: 9px 20px;
+      border-radius: 40px;
+      background: var(--amber);
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .ncta:hover {
+      background: var(--amber2);
+      transform: translateY(-2px);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: radial-gradient(120% 90% at 78% 8%, #14524a 0%, var(--teal) 45%, var(--teal2) 100%);
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(64px);
+      opacity: .5;
+      animation: fl 15s ease-in-out infinite;
+    }
+
+    .b1 {
+      width: 430px;
+      height: 430px;
+      background: #1d6b5e;
+      top: -90px;
+      right: -70px;
+    }
+
+    .b2 {
+      width: 330px;
+      height: 330px;
+      background: rgba(233, 151, 90, .38);
+      bottom: -110px;
+      left: -50px;
+      animation-delay: -6s;
+    }
+
+    @keyframes fl {
+      0%, 100% { transform: translate(0, 0); }
+      50%      { transform: translate(26px, -22px); }
+    }
+
+    .hgrid {
+      position: absolute;
+      inset: 0;
+      opacity: .05;
+      background-image:
+        linear-gradient(var(--cream) 1px, transparent 1px),
+        linear-gradient(90deg, var(--cream) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(85% 85% at 50% 35%, #000, transparent);
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid rgba(156, 192, 184, .35);
+      color: var(--tealmut);
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .pill .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: pl 2s infinite;
+    }
+
+    @keyframes pl {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(233, 151, 90, .5); }
+      50%      { box-shadow: 0 0 0 8px rgba(233, 151, 90, 0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6.6vw, 76px);
+      color: var(--cream);
+      font-weight: 800;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--amber);
+    }
+
+    .hero .lead {
+      color: var(--tealmut);
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.6;
+      max-width: 48ch;
+      margin: 22px 0 32px;
+    }
+
+    .btns {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 15px 27px;
+      border-radius: 46px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: .25s;
+      will-change: transform;
+    }
+
+    .bp {
+      background: var(--amber);
+      color: var(--teal);
+    }
+
+    .bp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px -12px rgba(233, 151, 90, .6);
+    }
+
+    .bs {
+      border: 1.5px solid rgba(156, 192, 184, .5);
+      color: var(--cream);
+    }
+
+    .bs:hover {
+      background: rgba(243, 236, 220, .08);
+      transform: translateY(-3px);
+    }
+
+    .trust {
+      display: flex;
+      gap: 26px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .trust div {
+      color: var(--tealmut);
+      font-size: 13.5px;
+    }
+
+    .trust b {
+      display: block;
+      font-family: 'Bricolage Grotesque';
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--cream);
+    }
+
+    .trust b i {
+      font-style: normal;
+      color: var(--amber);
+    }
+
+    /* Hero card */
+    .hcard {
+      background: rgba(243, 236, 220, .06);
+      border: 1px solid rgba(156, 192, 184, .25);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hcard .mas {
+      width: 84px;
+      height: 84px;
+      border-radius: 26%;
+      background: var(--amber);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: transform .35s cubic-bezier(.2, 1.3, .4, 1);
+    }
+
+    .hcard:hover .mas {
+      transform: rotate(-5deg) translateY(-4px);
+    }
+
+    .mas .ey {
+      font-family: 'Bricolage Grotesque';
+      font-weight: 800;
+      font-size: 34px;
+      color: var(--teal);
+      line-height: .8;
+    }
+
+    .mas svg {
+      margin-top: 2px;
+    }
+
+    .hcard h3 {
+      color: var(--cream);
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .hcard ul {
+      list-style: none;
+    }
+
+    .hcard li {
+      color: var(--tealmut);
+      font-size: 14px;
+      padding: 7px 0 7px 26px;
+      position: relative;
+    }
+
+    .hcard li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    @media (max-width: 880px) {
+      .hcard { display: none; }
+    }
+
+    /* ========== SECTION BASE ========== */
+    .sec {
+      padding: 96px 0;
+    }
+
+    .sec h2 {
+      font-size: clamp(28px, 4.4vw, 46px);
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .subt {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 56ch;
+      line-height: 1.6;
+    }
+
+    /* ========== PAIN ========== */
+    .pains {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 42px;
+    }
+
+    @media (max-width: 820px) {
+      .pains { grid-template-columns: 1fr; }
+    }
+
+    .pain {
+      background: var(--cream);
+      border-radius: 18px;
+      padding: 26px;
+      transition: .3s;
+    }
+
+    .pain:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 36px -22px rgba(16, 58, 53, .35);
+    }
+
+    .pain .q {
+      font-family: 'Bricolage Grotesque';
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .pain p {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    /* ========== SERVICES (teal section) ========== */
+    .teal-sec {
+      background: var(--teal);
+      color: var(--cream);
+    }
+
+    .teal-sec h2     { color: var(--cream); }
+    .teal-sec .subt  { color: var(--tealmut); }
+
+    .svcs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    @media (max-width: 900px) {
+      .svcs { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .svcs { grid-template-columns: 1fr; }
+    }
+
+    .svc {
+      background: rgba(243, 236, 220, .06);
+      border: 1px solid rgba(156, 192, 184, .22);
+      border-radius: 20px;
+      padding: 26px 22px;
+      transition: .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 90% at 50% 0%, rgba(233, 151, 90, .15), transparent 60%);
+      opacity: 0;
+      transition: .35s;
+    }
+
+    .svc:hover {
+      transform: translateY(-6px);
+      border-color: var(--amber);
+    }
+
+    .svc:hover::after {
+      opacity: 1;
+    }
+
+    .svc .ic {
+      width: 44px;
+      height: 44px;
+      color: var(--tealmut);
+      margin-bottom: 16px;
+      transition: .35s;
+    }
+
+    .svc:hover .ic {
+      color: var(--amber);
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    .svc .ic * {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .svc h3 {
+      font-size: 17.5px;
+      margin-bottom: 7px;
+      color: var(--cream);
+    }
+
+    .svc p {
+      color: var(--tealmut);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .svc .tag {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--amber);
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: .04em;
+    }
+
+    /* ========== HOW IT WORKS (steps) ========== */
+    .hsteps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 44px;
+      counter-reset: s;
+    }
+
+    @media (max-width: 880px) {
+      .hsteps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 540px) {
+      .hsteps { grid-template-columns: 1fr; }
+    }
+
+    .hstep {
+      background: var(--cream);
+      border-radius: 18px;
+      padding: 24px;
+      position: relative;
+      transition: .3s;
+    }
+
+    .hstep:hover {
+      transform: translateY(-5px);
+    }
+
+    .hstep::before {
+      counter-increment: s;
+      content: "0" counter(s);
+      font-family: 'Bricolage Grotesque';
+      font-weight: 800;
+      font-size: 34px;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .hstep h3 {
+      font-size: 16.5px;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    .hstep p {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    /* ========== TESTIMONIALS / PROOF ========== */
+    .proof-wrap {
+      margin-top: 44px;
+    }
+
+    .proof {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 4px;
+    }
+
+    .proof::-webkit-scrollbar { display: none; }
+
+    .tst {
+      flex: 0 0 calc((100% - 32px) / 3);
+      scroll-snap-align: start;
+      background: rgba(243, 236, 220, .06);
+      border: 1px solid rgba(156, 192, 184, .22);
+      border-radius: 20px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .tst { flex: 0 0 100%; }
+    }
+
+    .proof-ctrl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .pn-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(156, 192, 184, .35);
+      background: transparent;
+      color: var(--cream);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: .25s;
+    }
+
+    .pn-btn:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+      transform: translateY(-2px);
+    }
+
+    .pn-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .pn-dots {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .pn-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(156, 192, 184, .35);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: .3s;
+    }
+
+    .pn-dot.active {
+      background: var(--amber);
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    .tst p {
+      color: var(--cream);
+      font-size: 15px;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .tst .who {
+      color: var(--tealmut);
+      font-size: 13.5px;
+    }
+
+    .tst .who b {
+      color: var(--amber);
+      font-style: normal;
+    }
+
+    .tst .stars {
+      color: var(--amber);
+      letter-spacing: 3px;
+    }
+
+    /* ========== CTA + FORM ========== */
+    .cta {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal2) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta .hgrid {
+      opacity: .05;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 54px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 860px) {
+      .cta-grid { grid-template-columns: 1fr; }
+    }
+
+    .cta h2 {
+      color: var(--cream);
+      font-size: clamp(30px, 5vw, 52px);
+    }
+
+    .cta .subt {
+      color: var(--tealmut);
+      margin-top: 14px;
+    }
+
+    .form {
+      background: var(--paper);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .5);
+    }
+
+    .form h3 {
+      color: var(--teal);
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+
+    .fld {
+      margin-bottom: 14px;
+    }
+
+    .fld label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .fld input,
+    .fld select,
+    .fld textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #e3dcc9;
+      background: #fff;
+      font-family: inherit;
+      font-size: 14.5px;
+      color: var(--ink);
+      transition: border .25s;
+    }
+
+    .fld input:focus,
+    .fld select:focus,
+    .fld textarea:focus {
+      outline: none;
+      border-color: var(--amber);
+    }
+
+    .submit {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 46px;
+      background: var(--amber);
+      color: var(--teal);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 15.5px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .submit:hover {
+      background: var(--amber2);
+      transform: translateY(-2px);
+    }
+
+    .form .note {
+      font-size: 12.5px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ========== FAQ ========== */
+    .faq {
+      max-width: 760px;
+      margin: 44px auto 0;
+    }
+
+    .qa {
+      border-bottom: 1px solid #e6dfcd;
+    }
+
+    .qa summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Bricolage Grotesque';
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--teal);
+    }
+
+    .qa summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .qa summary::after {
+      content: "+";
+      font-size: 24px;
+      color: var(--amber);
+      transition: transform .3s;
+    }
+
+    .qa[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .qa p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 0 4px 20px;
+      max-width: 60ch;
+    }
+
+    /* ========== PORTFOLIO ========== */
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .fbtn {
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 1.5px solid #ddd3bb;
+      background: transparent;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .fbtn:hover {
+      border-color: var(--amber);
+      color: var(--teal);
+    }
+
+    .fbtn.active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--cream);
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    @media (max-width: 880px) {
+      .works { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .works { grid-template-columns: 1fr; }
+    }
+
+    .work {
+      background: var(--paper);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #e8e1cf;
+      transition: transform .35s, box-shadow .35s, opacity .35s;
+      cursor: pointer;
+    }
+
+    .work:hover {
+      transform: translateY(-6px) rotate(-.4deg);
+      box-shadow: 0 24px 44px -24px rgba(16, 58, 53, .4);
+    }
+
+    .work.hide {
+      display: none;
+    }
+
+    .work .shot {
+      aspect-ratio: 16/10;
+      background: repeating-linear-gradient(-45deg, #ece4d1 0 14px, #f0e9d8 14px 28px);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 13px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work .shot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(233, 151, 90, 0) 55%, rgba(233, 151, 90, .22));
+      opacity: 0;
+      transition: .35s;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .work:hover .shot::after {
+      opacity: 1;
+    }
+
+    .work .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .work:hover .shot img {
+      transform: scale(1.05);
+    }
+
+    .work figcaption {
+      padding: 18px 18px 20px;
+    }
+
+    .work b {
+      display: block;
+      font-family: 'Bricolage Grotesque';
+      font-weight: 700;
+      font-size: 16.5px;
+      color: var(--teal);
+    }
+
+    .work i {
+      display: block;
+      font-style: normal;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--amber);
+      margin: 3px 0 8px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .work p {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--teal2);
+      color: var(--tealmut);
+      padding: 40px 0;
+      font-size: 14px;
+    }
+
+    .f {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .f .fb {
+      font-family: 'Bricolage Grotesque';
+      font-weight: 800;
+      color: var(--cream);
+      font-size: 20px;
+    }
+
+    /* Footer right column */
+    .f-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .f-contact {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .f-contact a.mail {
+      color: var(--tealmut);
+      transition: color .25s;
+    }
+
+    .f-contact a.mail:hover {
+      color: var(--cream);
+    }
+
+    .f-copy {
+      opacity: .6;
+      font-size: 13px;
+    }
+
+    /* Social icons */
+    .socials {
+      display: flex;
+      gap: 8px;
+    }
+
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(243, 236, 220, .06);
+      border: 1px solid rgba(156, 192, 184, .25);
+      color: var(--tealmut);
+      transition: transform .25s ease, color .25s ease, background .35s ease, border-color .25s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-2px);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .socials a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Instagram brand gradient on hover */
+    .socials a.ig:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      box-shadow: 0 8px 20px -8px rgba(220, 39, 67, .55);
+    }
+
+    @media (max-width: 560px) {
+      .f-right { align-items: flex-start; }
+      .f-contact { flex-wrap: wrap; }
+    }
+
+    /* ========== FLOATING WHATSAPP ========== */
+    .wa {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14.5px;
+      padding: 13px 20px;
+      border-radius: 50px;
+      box-shadow: 0 14px 30px -10px rgba(37, 211, 102, .55);
+      transition: .25s;
+    }
+
+    .wa:hover {
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 560px) {
+      .wa span { display: none; }
+      .wa { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="nav">
+    <div class="wrap nv">
+      <a href="#" class="brand">projekin <span class="aw">ajaa</span></a>
+      <a href="#kontak" class="ncta">Konsultasi gratis</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="hgrid"></div>
+
+    <div class="wrap">
+      <div>
+        <div class="pill"><span class="dot"></span>Untuk UMKM &amp; instansi</div>
+        <h1>Bisnismu layak ditemukan &amp; <em>dipercaya.</em></h1>
+        <p class="lead">
+          Kami bantu wujudkan website, landing page, dan strategi digital yang bukan cuma bagus dilihat —
+          tapi benar-benar mendatangkan pelanggan. Punya ide? Projekin aja.
+        </p>
+
+        <div class="btns">
+          <a class="btn bp" href="#kontak">Konsultasi gratis →</a>
+          <a class="btn bs" href="#layanan">Lihat layanan</a>
+        </div>
+
+        <div class="trust">
+          <div><b><span data-count="50">0</span><i>+</i></b>Proyek selesai</div>
+          <div><b><span data-count="30">0</span><i>+</i></b>Klien &amp; mitra</div>
+          <div><b>24<i>h</i></b>Respon cepat</div>
+        </div>
+      </div>
+
+      <aside class="hcard">
+        <div class="mas">
+          <div class="ey">aa</div>
+          <svg width="38" height="16" viewBox="0 0 64 26">
+            <path d="M6 6 Q32 24 58 6" stroke="#0E3D38" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Gratis di sesi konsultasi:</h3>
+        <ul>
+          <li>Review website / online presence-mu</li>
+          <li>Rekomendasi solusi sesuai budget</li>
+          <li>Estimasi biaya &amp; timeline transparan</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <!-- ========== PAIN POINTS ========== -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Kenalan dulu sama masalahnya</span>
+        <h2>Pernah ngerasa kayak gini?</h2>
+      </div>
+
+      <div class="pains">
+        <div class="pain reveal">
+          <div class="q">“Produk bagus, tapi sepi.”</div>
+          <p>Calon pelanggan nggak bisa menemukanmu di Google, atau ragu karena belum ada website yang meyakinkan.</p>
+        </div>
+
+        <div class="pain reveal" style="transition-delay:.07s">
+          <div class="q">“Udah iklan, boncos terus.”</div>
+          <p>Iklan jalan tapi nggak ada yang beli — sering masalahnya bukan di iklan, tapi di halaman tujuannya.</p>
+        </div>
+
+        <div class="pain reveal" style="transition-delay:.14s">
+          <div class="q">“Nggak ngerti teknis.”</div>
+          <p>Domain, hosting, SEO, pixel… ribet. Kamu butuh satu tim yang ngurus semuanya tanpa bikin pusing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="sec teal-sec" id="layanan">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Solusinya</span>
+        <h2>Satu tim untuk semua kebutuhan digitalmu.</h2>
+        <p class="subt">Pilih yang kamu butuhkan — atau konsultasikan dulu, nanti kami rekomendasikan yang paling pas.</p>
+      </div>
+
+      <div class="svcs">
+        <div class="svc reveal">
+          <span class="tag">Favorit</span>
+          <svg class="ic" viewBox="0 0 48 48">
+            <rect x="7" y="11" width="34" height="27" rx="3"/>
+            <line x1="7" y1="18" x2="41" y2="18"/>
+            <circle cx="11.5" cy="14.5" r="1"/>
+            <circle cx="15.5" cy="14.5" r="1"/>
+          </svg>
+          <h3>Website &amp; Company Profile</h3>
+          <p>Citra bisnis yang kredibel — desain custom, cepat, dan mudah dikelola.</p>
+        </div>
+
+        <div class="svc reveal" style="transition-delay:.05s">
+          <svg class="ic" viewBox="0 0 48 48">
+            <rect x="10" y="7" width="28" height="34" rx="3"/>
+            <line x1="15" y1="14" x2="33" y2="14"/>
+            <line x1="15" y1="19" x2="28" y2="19"/>
+            <circle cx="24" cy="31" r="5"/>
+            <path d="M24 28.5v5M21.5 31h5"/>
+          </svg>
+          <h3>Landing Page</h3>
+          <p>Halaman fokus konversi untuk kampanye, produk, atau pendaftaran.</p>
+        </div>
+
+        <div class="svc reveal" style="transition-delay:.1s">
+          <svg class="ic" viewBox="0 0 48 48">
+            <rect x="14" y="6" width="20" height="36" rx="4"/>
+            <line x1="21" y1="10" x2="27" y2="10"/>
+            <circle cx="24" cy="37" r="1.4"/>
+          </svg>
+          <h3>Aplikasi &amp; Sistem Custom</h3>
+          <p>Web app atau sistem internal yang dirancang sesuai alur kerjamu.</p>
+        </div>
+
+        <div class="svc reveal" style="transition-delay:.15s">
+          <svg class="ic" viewBox="0 0 48 48">
+            <circle cx="21" cy="21" r="12"/>
+            <line x1="30" y1="30" x2="40" y2="40"/>
+            <polyline points="16,23 20,19 23,22 27,17"/>
+          </svg>
+          <h3>SEO</h3>
+          <p>Biar bisnismu nongol di Google saat pelanggan mencarinya.</p>
+        </div>
+
+        <div class="svc reveal" style="transition-delay:.2s">
+          <svg class="ic" viewBox="0 0 48 48">
+            <path d="M10 20v8l20 8V12z"/>
+            <path d="M30 16c4 1 4 11 0 12"/>
+            <line x1="14" y1="28" x2="14" y2="36"/>
+          </svg>
+          <h3>Google &amp; Meta Ads</h3>
+          <p>Kampanye iklan yang terukur — jangkau pelanggan yang tepat.</p>
+        </div>
+
+        <div class="svc reveal" style="transition-delay:.25s">
+          <svg class="ic" viewBox="0 0 48 48">
+            <rect x="6" y="16" width="36" height="18" rx="6"/>
+            <circle cx="16" cy="25" r="3.5"/>
+            <circle cx="32" cy="25" r="3.5"/>
+            <path d="M22 25h4"/>
+          </svg>
+          <h3>AR/VR &amp; Game Edukasi</h3>
+          <p>Pengalaman interaktif untuk pembelajaran, pameran, atau promosi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Cara kerja</span>
+        <h2>Prosesnya simpel, kamu tinggal terima jadi.</h2>
+      </div>
+
+      <div class="hsteps">
+        <div class="hstep reveal">
+          <h3>Konsultasi</h3>
+          <p>Ceritakan kebutuhanmu — gratis, tanpa komitmen.</p>
+        </div>
+        <div class="hstep reveal" style="transition-delay:.06s">
+          <h3>Penawaran</h3>
+          <p>Kami susun solusi, biaya, dan timeline yang transparan.</p>
+        </div>
+        <div class="hstep reveal" style="transition-delay:.12s">
+          <h3>Pengerjaan</h3>
+          <p>Tim kami eksekusi dengan rapi + update progres berkala.</p>
+        </div>
+        <div class="hstep reveal" style="transition-delay:.18s">
+          <h3>Launch &amp; dampingi</h3>
+          <p>Produk live, kami temani sampai benar-benar jalan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section class="sec" id="karya" style="background:var(--cream)">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Portofolio</span>
+        <h2>Sebagian hasil kerja kami.</h2>
+        <p class="subt">Klik kategori untuk menyaring. Ganti kartu ini dengan screenshot proyek aslimu.</p>
+      </div>
+
+      <div class="filters reveal" id="filters">
+        <button class="fbtn active" data-f="all">Semua</button>
+        <button class="fbtn" data-f="web">Website</button>
+        <button class="fbtn" data-f="app">Aplikasi</button>
+        <button class="fbtn" data-f="arvr">AR/VR &amp; Game</button>
+      </div>
+
+      <div class="works reveal" id="works">
+        <figure class="work" data-c="web">
+          <div class="shot">
+            <img src="/assets/images/website-tirtamas.png" alt="Website Tirtamas Bangun Karya" loading="lazy">
+          </div>
+          <figcaption>
+            <b>Tirtamas Bangun Karya</b>
+            <i>Website · Kontraktor Bangunan</i>
+            <p>Company profile Tirtamas Bangun Karya menaikan kunjungan website 30% dalam 2 bulan.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="work" data-c="web">
+          <div class="shot">
+            <img src="/assets/images/tirtaenvirotama.png" alt="Landing Page Tirta Envirotama Abadi" loading="lazy">
+          </div>
+          <figcaption>
+            <b>Tirta Envirotama Abadi</b>
+            <i>Landing Page · Kontraktor IPAL</i>
+            <p>Landing page yang jadi alat presentasi meyakinkan ke calon klien layanan IPAL.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="work" data-c="web">
+          <div class="shot">
+            <img src="/assets/images/hamptonfc.png" alt="Website Hampton FC" loading="lazy">
+          </div>
+          <figcaption>
+            <b>Hampton FC</b>
+            <i>Website · Hampton FC</i>
+            <p>Website Official Hampton FC dengan desain modern yg dilengkapi dengan fitur interaktif dan shop.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="work" data-c="arvr">
+          <div class="shot">
+            <img src="/assets/images/game-monopoly.png" alt="Monopoli Biologi" loading="lazy">
+          </div>
+          <figcaption>
+            <b>Monopoli Biologi</b>
+            <i>Game edukasi · Mahasiswa</i>
+            <p>Game pembelajaran interaktif untuk siswa.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="work" data-c="app">
+          <div class="shot">
+            <img src="/assets/images/lms.png" alt="Learning Management System" loading="lazy">
+          </div>
+          <figcaption>
+            <b>Learning Management System</b>
+            <i>Sistem custom · Pendidikan</i>
+            <p>Platform bahan ajar digital yang dipakai ratusan mahasiswa.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="work" data-c="arvr">
+          <div class="shot">
+            <img src="/assets/images/gespa-2.png" alt="Gespa App" loading="lazy">
+          </div>
+          <figcaption>
+            <b>Gespa App</b>
+            <i>Media Interaktif · Penelitian Dosen</i>
+            <p>Pengalaman media interaktif untuk kebutuan penelitian dosen.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="sec teal-sec">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Kata mereka</span>
+        <h2>Dipercaya dari dunia kampus sampai bisnis.</h2>
+      </div>
+
+      <div class="proof-wrap reveal">
+        <div class="proof" id="proof">
+          <div class="tst">
+            <div class="stars">★★★★★</div>
+            <p>"Website kami sekarang jauh lebih meyakinkan calon klien. Kunjungan naik 30% dalam 2 bulan pertama, dan beberapa proyek datang langsung dari sana."</p>
+            <div class="who"><b>Nurul Wahida</b> — Tirtamas Bangun Karya</div>
+          </div>
+
+          <div class="tst">
+            <div class="stars">★★★★★</div>
+            <p>"Desainnya modern dan fitur shop-nya jalan mulus. Tim Projekin Ajaa sabar bantu revisi sampai semua sesuai yang kami mau."</p>
+            <div class="who"><b>Hampton Hartanto</b> — Hampton FC</div>
+          </div>
+
+          <div class="tst">
+            <div class="stars">★★★★★</div>
+            <p>"Platform LMS-nya dipakai ratusan mahasiswa tanpa kendala. Komunikasi enak, revisi cepat, dan fiturnya benar-benar sesuai kebutuhan mengajar."</p>
+            <div class="who"><b>Ayyu Subhi Farahiba, S.Pd., M.Pd.</b> — Pengelola LMS</div>
+          </div>
+
+          <div class="tst">
+            <div class="stars">★★★★★</div>
+            <p>"Landing page-nya langsung jadi alat presentasi yang meyakinkan ke calon klien. Brief sampai launch tidak sampai 2 minggu, dan timnya paham bidang kami."</p>
+            <div class="who"><b>Kenny Bellardo</b> — Tirta Envirotama Abadi</div>
+          </div>
+
+          <div class="tst">
+            <div class="stars">★★★★★</div>
+            <p>"Buat tugas akhir saya butuh media pembelajaran interaktif. Tim Projekin Ajaa bantu dari konsep sampai jadi game yang siap dipakai — dosen pembimbing langsung approve."</p>
+            <div class="who"><b>A. Rahmadhana R</b> — Mahasiswa Pendidikan Biologi</div>
+          </div>
+
+          <div class="tst">
+            <div class="stars">★★★★★</div>
+            <p>"Aplikasinya benar-benar mendukung jalannya penelitian. Mereka paham kebutuhan akademik, bukan cuma jago teknis — itu yang bikin hasilnya tepat sasaran."</p>
+            <div class="who"><b>Fikri Nazarullail, S.Pd., M.Pd.</b> — Peneliti, Gespa App</div>
+          </div>
+
+          <div class="tst">
+            <div class="stars">★★★★★</div>
+            <p>"Iklan Google & Meta-nya tepat sasaran — yang menghubungi kami benar-benar calon klien yang butuh layanan IPAL, bukan random. Hemat budget, hasilnya jelas."</p>
+            <div class="who"><b>Kenny Bellardo</b> — Tirta Envirotama Abadi</div>
+          </div>
+        </div>
+
+        <div class="proof-ctrl">
+          <button class="pn-btn pn-prev" aria-label="Testimoni sebelumnya">
+            <svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg>
+          </button>
+          <div class="pn-dots" id="proof-dots"></div>
+          <button class="pn-btn pn-next" aria-label="Testimoni berikutnya">
+            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA + LEAD FORM ========== -->
+  <section class="sec cta" id="kontak">
+    <div class="hgrid"></div>
+    <div class="wrap cta-grid">
+      <div class="reveal">
+        <span class="label">Mulai sekarang</span>
+        <h2>Punya ide? Projekin aja.</h2>
+        <p class="subt">Isi form ini atau langsung chat WhatsApp — kami balas maksimal 1×24 jam dengan rekomendasi awal untuk kebutuhanmu.</p>
+      </div>
+
+      <form class="form reveal" style="transition-delay:.08s" id="leadform">
+        <h3>Konsultasi gratis</h3>
+
+        <div class="fld">
+          <label>Nama</label>
+          <input type="text" name="nama" placeholder="Nama kamu" required>
+        </div>
+
+        <div class="fld">
+          <label>No. WhatsApp</label>
+          <input type="tel" name="wa" placeholder="08xxxxxxxxxx" required>
+        </div>
+
+        <div class="fld">
+          <label>Kebutuhan</label>
+          <select name="layanan" required>
+            <option value="" disabled selected>Pilih layanan…</option>
+            <option>Website / Company Profile</option>
+            <option>Landing Page</option>
+            <option>Aplikasi / Sistem Custom</option>
+            <option>SEO</option>
+            <option>Google / Meta Ads</option>
+            <option>AR/VR / Game Edukasi</option>
+            <option>Belum yakin — minta rekomendasi</option>
+          </select>
+        </div>
+
+        <div class="fld">
+          <label>Ceritakan singkat (opsional)</label>
+          <textarea name="pesan" rows="3" placeholder="Contoh: saya punya toko kue, mau bisa terima pesanan online…"></textarea>
+        </div>
+
+        <button class="submit" type="submit">Kirim &amp; lanjut ke WhatsApp →</button>
+        <div class="note">Tanpa biaya, tanpa komitmen. Data kamu aman.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="reveal" style="text-align:center">
+        <span class="label">FAQ</span>
+        <h2>Yang sering ditanyakan.</h2>
+      </div>
+
+      <div class="faq reveal">
+        <details class="qa">
+          <summary>Berapa biaya pembuatan website?</summary>
+          <p>Tergantung kebutuhan. Landing page mulai dari Rp 500.000, company profile mulai dari Rp 1.000.000, game edukasi dan ar/vr mulai dari 1.000.000. Setelah konsultasi, kamu akan terima penawaran tertulis yang transparan: rincian biaya, lingkup, dan timeline.</p>
+        </details>
+
+        <details class="qa">
+          <summary>Berapa lama pengerjaannya?</summary>
+          <p>Landing page umumnya 1 minggu, company profile 2–3 minggu, game edukasi dan ar/vr 3-4 minggu, aplikasi custom menyesuaikan kompleksitas. Timeline pasti tercantum di penawaran.</p>
+        </details>
+
+        <details class="qa">
+          <summary>Saya tidak mengerti teknis sama sekali, bisa?</summary>
+          <p>Justru itu spesialisasi kami. Domain, hosting, setup, sampai pelatihan penggunaan — semua kami urus. Kamu cukup cerita kebutuhanmu.</p>
+        </details>
+
+        <details class="qa">
+          <summary>Apakah ada garansi atau pendampingan?</summary>
+          <p>Ada. Setiap proyek termasuk masa garansi 30 hari setelah serah terima, plus opsi maintenance bulanan kalau mau terus didampingi.</p>
+        </details>
+
+        <details class="qa">
+          <summary>Apakah melayani klien luar kota?</summary>
+          <p>Tentu, sebagian besar proses berjalan online (meeting via video call, progres via chat), jadi dari mana pun bisa.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="wrap f">
+      <div>
+        <div class="fb">projekin <span class="aw">ajaa</span></div>
+        Aplikasi · Website · Landing page · SEO · Ads · AR/VR
+      </div>
+      <div class="f-right">
+        <div class="f-contact">
+          <a class="mail" href="mailto:projekin.ajaa@gmail.com">projekin.ajaa@gmail.com</a>
+          <div class="socials">
+            <a class="ig" href="https://instagram.com/projekin_ajaa" target="_blank" rel="noopener" aria-label="Instagram Projekin Ajaa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="f-copy">© <span id="yr"></span> Projekin Ajaa</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING WHATSAPP ========== -->
+  <a class="wa" id="wabtn" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4.1.1.1.7-.2 1.3z"/>
+    </svg>
+    <span>Chat kami</span>
+  </a>
+
+  <script>
+    // ====== GANTI NOMOR WA DI SINI ======
+    const WA_NUMBER = "6285546530791"; // format internasional tanpa +
+    // =====================================
+
+    // ---------- WhatsApp floating button ----------
+    const waText = encodeURIComponent("Halo Projekin Ajaa! Saya mau konsultasi gratis.");
+    document.getElementById('wabtn').href = `https://wa.me/${WA_NUMBER}?text=${waText}`;
+
+    // ---------- Footer year ----------
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ---------- Lead form → WhatsApp (no backend) ----------
+    document.getElementById('leadform').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const msg = [
+        `Halo Projekin Ajaa! Saya ${f.get('nama')}.`,
+        `Kebutuhan: ${f.get('layanan')}`,
+        `WA: ${f.get('wa')}`,
+        f.get('pesan') ? `Catatan: ${f.get('pesan')}` : ''
+      ].filter(Boolean).join('\n');
+
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // ---------- Portfolio filter ----------
+    document.getElementById('filters').addEventListener('click', e => {
+      const btn = e.target.closest('.fbtn');
+      if (!btn) return;
+
+      document.querySelectorAll('.fbtn').forEach(x => x.classList.toggle('active', x === btn));
+
+      const filter = btn.dataset.f;
+      document.querySelectorAll('.work').forEach(w => {
+        w.classList.toggle('hide', filter !== 'all' && w.dataset.c !== filter);
+      });
+    });
+
+    // ---------- Nav style on scroll ----------
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('sc', window.scrollY > 40);
+    });
+
+    // ---------- Reveal on scroll ----------
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .16 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ---------- Testimonial carousel (infinite loop) ----------
+    (() => {
+      const track = document.getElementById('proof');
+      const prevBtn = document.querySelector('.pn-prev');
+      const nextBtn = document.querySelector('.pn-next');
+      const dotsBox = document.getElementById('proof-dots');
+      if (!track || !prevBtn || !nextBtn || !dotsBox) return;
+
+      const originals = [...track.querySelectorAll('.tst')];
+      const N = originals.length;
+      const gap = 16;
+      let timer, settleTimer, V = 0;
+
+      const stepW = () => originals[0].getBoundingClientRect().width + gap;
+      const vCount = () => Math.max(1, Math.round(track.clientWidth / stepW()));
+
+      const jump = left => {
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = left;
+        track.offsetHeight; // force reflow
+        track.style.scrollBehavior = '';
+      };
+
+      const buildClones = () => {
+        track.querySelectorAll('.tst.clone').forEach(c => c.remove());
+        V = vCount();
+        // Prepend last V originals as leading clones (for backward seamless loop)
+        for (let i = N - V; i < N; i++) {
+          const c = originals[i].cloneNode(true);
+          c.classList.add('clone');
+          c.setAttribute('aria-hidden', 'true');
+          track.insertBefore(c, track.firstChild);
+        }
+        // Append first V originals as trailing clones (for forward seamless loop)
+        for (let i = 0; i < V; i++) {
+          const c = originals[i].cloneNode(true);
+          c.classList.add('clone');
+          c.setAttribute('aria-hidden', 'true');
+          track.appendChild(c);
+        }
+        // Start positioned at first real card (skip leading clones)
+        jump(V * stepW());
+      };
+
+      const buildDots = () => {
+        dotsBox.innerHTML = '';
+        for (let i = 0; i < N; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'pn-dot';
+          dot.setAttribute('aria-label', `Ke testimoni ${i + 1}`);
+          dot.addEventListener('click', () => {
+            track.scrollTo({ left: (V + i) * stepW(), behavior: 'smooth' });
+            restart();
+          });
+          dotsBox.appendChild(dot);
+        }
+        updateActive();
+      };
+
+      const updateActive = () => {
+        const physical = Math.round(track.scrollLeft / stepW());
+        const idx = ((physical - V) % N + N) % N;
+        [...dotsBox.children].forEach((d, i) => d.classList.toggle('active', i === idx));
+      };
+
+      const handleSettle = () => {
+        const physical = Math.round(track.scrollLeft / stepW());
+        if (physical < V) {
+          // Inside leading clones — silently jump to equivalent real position
+          jump((physical + N) * stepW());
+        } else if (physical >= V + N) {
+          // Inside trailing clones — silently jump back
+          jump((physical - N) * stepW());
+        }
+      };
+
+      const next = () => track.scrollTo({ left: track.scrollLeft + stepW(), behavior: 'smooth' });
+      const prev = () => track.scrollTo({ left: track.scrollLeft - stepW(), behavior: 'smooth' });
+
+      const restart = () => {
+        clearInterval(timer);
+        timer = setInterval(next, 6500);
+      };
+
+      const setup = () => {
+        buildClones();
+        buildDots();
+      };
+
+      track.addEventListener('scroll', () => {
+        updateActive();
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(handleSettle, 140);
+      }, { passive: true });
+
+      nextBtn.addEventListener('click', () => { next(); restart(); });
+      prevBtn.addEventListener('click', () => { prev(); restart(); });
+      track.addEventListener('mouseenter', () => clearInterval(timer));
+      track.addEventListener('mouseleave', restart);
+      window.addEventListener('resize', () => {
+        clearInterval(timer);
+        setup();
+        restart();
+      });
+
+      setup();
+      restart();
+    })();
+
+    // ---------- Count-up animation ----------
+    const countObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const el = entry.target;
+        const target = +el.dataset.count;
+        const step = Math.max(1, target / 40);
+        let current = 0;
+
+        (function tick() {
+          current += step;
+          if (current >= target) {
+            el.textContent = target;
+          } else {
+            el.textContent = Math.floor(current);
+            requestAnimationFrame(tick);
+          }
+        })();
+
+        countObserver.unobserve(el);
+      });
+    }, { threshold: .6 });
+
+    document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+  </script>
+
+</body>
+</html>
