@@ -919,7 +919,16 @@
       overflow: hidden;
       border: 1px solid #e8e1cf;
       transition: transform .35s, box-shadow .35s, opacity .35s;
+      cursor: default;
+    }
+
+    .work.is-link {
       cursor: pointer;
+    }
+
+    .work.is-link:focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 3px;
     }
 
     .work:hover {
@@ -1326,8 +1335,13 @@
         <button class="fbtn" data-f="arvr">AR/VR &amp; Game</button>
       </div>
 
+      <!--
+        LINK PROYEK: isi URL hasil proyek di atribut data-href tiap kartu.
+        Contoh: data-href="https://tirtamas.example.com"
+        Biarkan kosong (data-href="") jika belum ada link — kartunya otomatis tidak bisa diklik.
+      -->
       <div class="works reveal" id="works">
-        <figure class="work" data-c="web">
+        <figure class="work" data-c="web" data-href="https://dribbble.com/shots/26245462-Contractor-Website-Design?utm_source=Clipboard_Shot&utm_campaign=dimasachmad&utm_content=Contractor%20Website%20Design&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=dimasachmad&utm_content=Contractor%20Website%20Design&utm_medium=Social_Share">
           <div class="shot">
             <img src="/assets/images/website-tirtamas.png" alt="Website Tirtamas Bangun Karya" loading="lazy">
           </div>
@@ -1338,7 +1352,7 @@
           </figcaption>
         </figure>
 
-        <figure class="work" data-c="web">
+        <figure class="work" data-c="web" data-href="https://dribbble.com/shots/25520038-Website-Company-Profile-Tirta-Envirotama-Abadi?utm_source=Clipboard_Shot&utm_campaign=dimasachmad&utm_content=Website%20Company%20Profile%20-%20Tirta%20Envirotama%20Abadi&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=dimasachmad&utm_content=Website%20Company%20Profile%20-%20Tirta%20Envirotama%20Abadi&utm_medium=Social_Share">
           <div class="shot">
             <img src="/assets/images/tirtaenvirotama.png" alt="Landing Page Tirta Envirotama Abadi" loading="lazy">
           </div>
@@ -1349,7 +1363,7 @@
           </figcaption>
         </figure>
 
-        <figure class="work" data-c="web">
+        <figure class="work" data-c="web" data-href="https://dribbble.com/shots/27058726-Sport-Football-Website?utm_source=Clipboard_Shot&utm_campaign=dimasachmad&utm_content=Sport%20%26%20Football%20Website&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=dimasachmad&utm_content=Sport%20%26%20Football%20Website&utm_medium=Social_Share">
           <div class="shot">
             <img src="/assets/images/hamptonfc.png" alt="Website Hampton FC" loading="lazy">
           </div>
@@ -1360,7 +1374,7 @@
           </figcaption>
         </figure>
 
-        <figure class="work" data-c="arvr">
+        <figure class="work" data-c="arvr" data-href="https://dimasachmad.itch.io/monopoli-biologi-app">
           <div class="shot">
             <img src="/assets/images/game-monopoly.png" alt="Monopoli Biologi" loading="lazy">
           </div>
@@ -1371,7 +1385,7 @@
           </figcaption>
         </figure>
 
-        <figure class="work" data-c="app">
+        <figure class="work" data-c="app" data-href="https://model-ksf.com/">
           <div class="shot">
             <img src="/assets/images/lms.png" alt="Learning Management System" loading="lazy">
           </div>
@@ -1382,7 +1396,7 @@
           </figcaption>
         </figure>
 
-        <figure class="work" data-c="arvr">
+        <figure class="work" data-c="arvr" data-href="">
           <div class="shot">
             <img src="/assets/images/gespa-2.png" alt="Gespa App" loading="lazy">
           </div>
@@ -1616,6 +1630,25 @@
       const filter = btn.dataset.f;
       document.querySelectorAll('.work').forEach(w => {
         w.classList.toggle('hide', filter !== 'all' && w.dataset.c !== filter);
+      });
+    });
+
+    // ---------- Portfolio cards → project link ----------
+    document.querySelectorAll('.work').forEach(card => {
+      const url = (card.dataset.href || '').trim();
+      if (!url) return; // tidak ada link → kartu tidak bisa diklik
+
+      card.classList.add('is-link');
+      card.setAttribute('role', 'link');
+      card.setAttribute('tabindex', '0');
+
+      const open = () => window.open(url, '_blank', 'noopener');
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open();
+        }
       });
     });
 
